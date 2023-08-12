@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <title>Update Device</title>
+</head>
+<main>
+    <div class="container mt-5">
+        <div class="row mt-3 offset-3">
+            <h1 class="display-5">Update Device</h1>
+            <form action="/devices/{{id}}" method="POST">
+                <div class="row mt-2">
+                    <div class="col-2"><label class="form-label" for="hostname">Hostname</label></div>
+                    <div class="col-6"><input class="form-control" type="text" id="hostname" name="hostname" value={{device['hostname']}}></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-2"><label class="form-label" for="ip">IP Address</label></div>
+                    <div class="col-6"><input class="form-control" type="text" id="ip" name="ip" value={{device['ip']}}>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-2"><label class="form-label" for="status">Status</label></div>
+                    <div class="col-6"><input class="form-control" type="text" id="status" name="status" value={{device['status']}}></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2 offset-2"><button class="btn btn-success">Update</button></div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

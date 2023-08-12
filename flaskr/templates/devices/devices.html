@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <title>Devices</title>
+</head>
+
+<main>
+
+    <div class="container mt-3">
+        <p class="display-6">List Of Devices</p>
+        <a class="btn btn-primary" href="/devices/new">Add</a>
+        <div class="row mt-5">
+            <div class="col-3 bg-info">Hostname</div>
+            <div class="col-3 bg-success">IP Address</div>
+            <div class="col-3 bg-info">Status</div>
+            <div class="col-3 bg-success text-center">Action</div>
+        </div>
+
+        {% for device in device_list: %}
+        <div class="row mt-2">
+            <div class="col-3">{{device['hostname']}}</div>
+            <div class="col-3">{{device['ip']}}</div>
+            <div class="col-3">{{device['status']}}</div>
+            <div class="col-3 text-center">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-3">
+                        <form action="/devices/{{device['id']}}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-sm btn-outline-danger">Delete</button>
+                        </form>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-3">
+                        <a class="btn btn-sm btn-outline-primary" href="/devices/{{device['id']}}/update">Edit</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+</main>
+
+{% endblock %}

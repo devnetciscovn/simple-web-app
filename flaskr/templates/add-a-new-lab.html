@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <title>Add A New Lab</title>
+</head>
+
+<main>
+    <div class="row offset-2 mt-5">
+        <h2>Add Lab</h2> 
+        <form action="/labs" method="POST">
+            <div class="col-4 mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" name="title" id="title" placeholder="Lab Title" type="text">
+            </div>
+            <div class="col-4 mb-3">
+                <label class="form-label" for="objective">Objective</label>
+                <textarea class="form-control" id="objective" name="objective" row="200"></textarea>
+            </div>
+            <div class="col-4 mb-3">
+                <label class="form-label" for="content">Content</label>
+                <textarea class="form-control" id="content" name="content" row="200">Lab Content</textarea>
+            </div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    
+    </div>
+    
+</main>
+{% endblock %}

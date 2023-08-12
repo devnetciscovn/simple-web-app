@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Update Lab</title>
+</head>
+
+<main>
+    <div class="row offset-2 mt-5">
+        <h2>Update Lab</h2>
+        <form action="/labs/{{selected_lab['_id']}}" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div>
+                <div class="col-4 mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" name="title" id="title" value={{selected_lab['title']}} type="text">
+            </div>
+            </div>
+            <div class="col-4 mb-3">
+                <label class="form-label" for="objective">Objective</label>
+                <textarea class="form-control" id="objective" name="objective" row="100">{{selected_lab['objective']}}</textarea>
+            </div>
+
+            <div class="col-4 mb-3">
+                <label class="form-label" for="content">Content</label>
+                <textarea class="form-control" id="content" name="content" row="100">{{selected_lab['content']}}</textarea>
+            </div>
+
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>    
+    </div>
+    
+</main>
+
+{% endblock %}
